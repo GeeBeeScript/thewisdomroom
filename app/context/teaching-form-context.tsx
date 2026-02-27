@@ -32,7 +32,6 @@ interface secondPostContent {
 export const TeacherFormContextProvider = ({ children }: TeacherFormContextProviderProps) => {
     const [isPosted, setIsPosted] = useState<Boolean | null>(null)
     const [postContent, setPostContent] = useState<{} | null>(null)
-    console.log(postContent)
 
     const postInitialContent = ({ title, imageUrl, imageColor, description, todaysWord }: firstPostContent) => {
         setPostContent({ title, imageUrl, imageColor, description, todaysWord })
@@ -57,5 +56,9 @@ export const TeacherFormContextProvider = ({ children }: TeacherFormContextProvi
 }
 
 export const TeacherForm = ():TeacherFormType => {
-    return useContext(TeacherFormContext)
+    const context = useContext(TeacherFormContext)
+    if (!context) {
+    throw new Error("TeacherFormContext must be used within an TeacherFormContextProvider");
+  }
+    return context
 } 

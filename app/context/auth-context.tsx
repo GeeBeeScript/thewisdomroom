@@ -76,7 +76,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       const user = userCredential.user
       return user
     } catch(err) {
-      console.log(err)
+      console.log("Sign in failed ", err)
+      throw err
     }
   }
 
@@ -131,5 +132,9 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 };
 
 export const UserAuth = (): AuthContextType  => {
-  return useContext(AuthContext);
+  const context =  useContext(AuthContext);
+  if (!context) {
+    throw new Error("UserAuth must be used within an AuthContextProvider");
+  }
+  return context
 };

@@ -47,7 +47,7 @@ const AddTeachingFirst = (props: AddTeachingFirstProps) => {
       const hexColor = randomHexColor()
         postInitialContent({ 
           title: titleRef.current?.value,
-          imageUrl: null,
+          imageUrl: undefined,
           imageColor: hexColor,
           description: descriptionRef.current?.value,
           todaysWord: checked

@@ -28,19 +28,19 @@ interface TeacherFormContextProviderProps {
 }
 
 interface firstPostContent {
-  title: string | undefined;
-  imageUrl: string | undefined;
-  imageColor: string | undefined;
-  description: string | undefined;
-  todaysWord: boolean | undefined;
+  title?: string;
+  imageUrl?: string;
+  imageColor?: string;
+  description?: string;
+  todaysWord?: boolean;
 }
 
 interface secondPostContent {
-  content: string | undefined;
-  comment: string | undefined;
+  content?: string;
+  comment?: string;
 }
 
-interface createTeachingParams {
+interface TeachingFormData {
   title: string;
   imageUrl: string;
   imageColor: string;
@@ -54,9 +54,7 @@ export const TeacherFormContextProvider = ({
   children,
 }: TeacherFormContextProviderProps) => {
   const [isPosted, setIsPosted] = useState<Boolean | null>(null);
-  const [postContent, setPostContent] = useState<Partial<createTeachingParams>>(
-    {},
-  );
+  const [postContent, setPostContent] = useState<Partial<TeachingFormData>>({});
 
   const postInitialContent = ({
     title,
@@ -75,17 +73,19 @@ export const TeacherFormContextProvider = ({
   };
 
   const submitPostContent = async () => {
+    console.log(postContent);
     if (
       !postContent.title ||
+      !postContent.imageUrl ||
+      !postContent.imageColor ||
       !postContent.description ||
-      postContent.todaysWord === undefined ||
+      postContent.todaysWord === null ||
       !postContent.content ||
       !postContent.comment
     ) {
-      throw new Error("All fields must be filled before submitting");
+      throw new Error("Missing required fields");
     }
-    console.log(postContent);
-    await createTeaching(postContent as createTeachingParams);
+    await createTeaching(postContent as TeachingFormData);
   };
 
   return (

@@ -29,7 +29,7 @@ model Teachings {
   image String?
   bannerColour String?
   description String
-  mainContent String
+  mainContent String @db.Text
   comment String
   teacherId String?
   teacherName String?

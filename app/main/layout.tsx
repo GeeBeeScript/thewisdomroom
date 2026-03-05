@@ -1,5 +1,4 @@
 import MainNavigation from "@/components/MainNavigation";
-import MainNavMenu from "@/components/MainNavMenu";
 import MainFooter from "./[components]/MainFooter";
 
 export default function MainLayout({
@@ -9,8 +8,6 @@ export default function MainLayout({
 }>) {
   return (
     <main className="w-screen min-h-screen flex flex-col">
-        <MainNavigation />
-        {/* <MainNavMenu /> */}
         {children}
         <MainFooter />
     </main>

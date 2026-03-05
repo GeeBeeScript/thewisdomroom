@@ -1,12 +1,16 @@
-import React from 'react'
-import NoContentText from '../[components]/NoContentText'
+import React from "react";
+import NoContentText from "../[components]/NoContentText";
+import IndexNavigation from "@/components/IndexNavigation";
 
 const Interpretations = () => {
   return (
-    <div className="flex-1 w-full flex justify-center items-center">
+    <>
+      <IndexNavigation />
+      <div className="flex-1 w-full flex justify-center items-center">
         <NoContentText />
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default Interpretations
+export default Interpretations;

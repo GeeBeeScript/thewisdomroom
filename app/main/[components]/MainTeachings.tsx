@@ -5,6 +5,7 @@ import MainTeachingItem from "./MainTeachingItem";
 import { useEffect, useState } from "react";
 import { getTeachingQty } from "@/actions/teaching-actions";
 import Link from "next/link";
+import { Spinner } from "@/components/ui/spinner";
 
 interface particularTeachingItem {
   id: string;
@@ -21,11 +22,22 @@ interface particularTeachingItem {
 }
 
 const MainTeachings = () => {
-  const [teachings, setTeachings] = useState<particularTeachingItem[] | undefined>(undefined);
+  const [teachings, setTeachings] = useState<
+    particularTeachingItem[] | undefined
+  >(undefined);
+  const [error, setError] = useState<boolean>(false);
+  const [loading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getTeaching = async () => {
+      setIsLoading(true);
       const getfiveTeachings = await getTeachingQty(5);
+      setIsLoading(false);
+
+      if (!getfiveTeachings) {
+        setError(true);
+        return;
+      }
       setTeachings(getfiveTeachings);
     };
 
@@ -35,7 +47,10 @@ const MainTeachings = () => {
     <section className="w-full">
       {/* Header */}
       <div className="w-full">
-        <Link href="/main/ViewTeachings/" className="flex justify-between items-center px-5 py-3 my-3">
+        <Link
+          href="/main/ViewTeachings/"
+          className="flex justify-between items-center px-5 py-3 my-3"
+        >
           <p className="font-bold text-[#222] text-xl">Explore Teachings</p>
           <MoveRight />
         </Link>
@@ -51,9 +66,35 @@ const MainTeachings = () => {
             md:grid md:grid-cols-2 md:gap-6
           "
         >
-          {teachings?.map((item) => (
-            <MainTeachingItem key={item.id} id={item.id} title={item.title} description={item.description} mainContent={item.mainContent} bannerColour={item.bannerColour} />
-          ))}
+          {error && !loading && (
+            <div className="flex-1 w-full h-full relative snap-start flex justify-center items-center">
+              <p className="flex items-center gap-2 font-bold">
+                Item does not exist
+              </p>
+            </div>
+          )}
+          {!error && loading && (
+            <div className="w-full h-full relative snap-start flex justify-center items-center">
+              <p className="flex items-center gap-2 font-bold">
+                <span>Loading</span>{" "}
+                <span>
+                  <Spinner />
+                </span>
+              </p>
+            </div>
+          )}
+          {!error &&
+            !loading &&
+            teachings?.map((item) => (
+              <MainTeachingItem
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                mainContent={item.mainContent}
+                bannerColour={item.bannerColour}
+              />
+            ))}
         </div>
       </div>
     </section>

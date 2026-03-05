@@ -87,7 +87,7 @@ const AddTeachingSecond = (props: AddTeachingSecondProps) => {
                   <Textarea
                     id="checkout-7j9-optional-comments"
                     placeholder="Add your main content here"
-                    className="resize-none min-h-75"
+                    className="resize-none min-h-75 font-mono"
                     ref={contentRef}
                   />
                 </Field>

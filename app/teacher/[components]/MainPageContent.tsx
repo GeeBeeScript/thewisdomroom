@@ -1,6 +1,10 @@
 "use client";
 
 import { UserAuth } from "@/app/context/auth-context";
+import AskAQuestionSection from "@/app/main/[components]/AskAQuestionSection";
+import MainPopularQuestions from "@/app/main/[components]/MainPopularQuestions";
+import MainTeachings from "@/app/main/[components]/MainTeachings";
+import { WordSection } from "@/app/main/[components]/WordSection";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -9,14 +13,13 @@ const MainPageContent = () => {
   const router = useRouter();
   console.log(user)
 
-  useEffect(() => {
-    if (user) {
-      router.push("/main");
-    }
-  }, [user]);
+
   return (
-    <section className="flex-1 w-full min-h-screen flex justify-center items-center font-bold text-[#333] text-[1.2rem]">
-      The Wisdom Room
+    <section className='max-w-200 mx-auto pb-8 w-full min-h-screen flex flex-col overflow-x-hidden'>
+      <MainTeachings />
+      <MainPopularQuestions />
+      <AskAQuestionSection />
+      <WordSection />
     </section>
   );
 };

@@ -5,13 +5,10 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import MainNavMenu from "./MainNavMenu";
 import Link from "next/link";
-import { UserAuth } from "@/app/context/auth-context";
-import { useRouter } from "next/navigation";
+
 
 const IndexNavigation = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
-  const { user, isLoading, verifyUserStatus } = UserAuth();
-  const router = useRouter();
 
   const onCloseMenu = () => {
     setMenuIsOpen(false);
@@ -21,11 +18,7 @@ const IndexNavigation = () => {
     setMenuIsOpen(true);
   };
 
-  useEffect(() => {
-    if (user && !isLoading) {
-      router.push("/main");
-    }
-  }, [user, isLoading]);
+ 
 
   return (
     <nav className="w-full px-2 py-2  h-[20%] border-b border-b-gray-300">

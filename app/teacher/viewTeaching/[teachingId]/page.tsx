@@ -92,7 +92,7 @@ const ViewTeachingPage = ({ params }: viewTeachingPageProps) => {
         <Separator className="bg-[#bebebe]"/>
         
           <div className="w-full mt-10 mb-5 flex flex-col justify-start items-start gap-5">
-            <div className="w-full px-5">
+            <div className="w-full sm:px-5 px-1">
               <CommentSection />
             </div>
             <p className="font-bold text-[1.2rem] text-[#222]">Would you like to ask us a Question?</p>

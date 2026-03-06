@@ -32,7 +32,7 @@ const CommentItem = () => {
             <span>57</span>
           </div>
         </div>
-        <div className="bg-blue-500 w-[70%] sm:w-[50%] border-b border-[#555]"></div>
+        <div className="bg-blue-500 w-full sm:w-[50%] border-b border-[#555]"></div>
       </div>
     </div>
   );

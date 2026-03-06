@@ -33,6 +33,7 @@ model Teachings {
   comment String
   teacherId String?
   teacherName String?
+  usersComments Json? @default("[]")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

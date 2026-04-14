@@ -16,7 +16,7 @@ const MainPopQuestionsItem = () => {
           spiritual truth, not scientific explanation.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="returns">
+      {/* <AccordionItem value="returns">
         <AccordionTrigger>
           Are God, Jesus and The Holy Spirit the same?
         </AccordionTrigger>
@@ -24,15 +24,15 @@ const MainPopQuestionsItem = () => {
           There is one God in three Persons (the Trinity) — distinct Persons,
           yet one divine nature.
         </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="support">
+      </AccordionItem> */}
+      {/* <AccordionItem value="support">
         <AccordionTrigger>How should prayer be done?</AccordionTrigger>
         <AccordionContent>
           Pray sincerely and humbly, from the heart, with faith — often
           following the model Jesus gave (Matthew 6:9–13), honoring God, seeking
           His will, and asking for daily needs.
         </AccordionContent>
-      </AccordionItem>
+      </AccordionItem> */}
     </Accordion>
   );
 };

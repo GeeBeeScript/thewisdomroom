@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getTeachingQty } from "@/actions/teaching-actions";
+import { getAllTeachings, getTeachingQty } from "@/actions/teaching-actions";
 import Link from "next/link";
 import ViewTeachingsItem from "./(components)/ViewTeachingsItem";
 import IndexNavigation from "@/components/IndexNavigation";
@@ -31,15 +31,15 @@ const ViewTeachings = () => {
   useEffect(() => {
     const getTeaching = async () => {
       setLoading(true);
-      const getfiveTeachings = await getTeachingQty(5);
+      const getTeachings = await getAllTeachings();
       setLoading(false);
 
-      if (!getfiveTeachings) {
+      if (!getTeachings) {
         setError(true);
         return;
       }
 
-      setTeachings(getfiveTeachings);
+      setTeachings(getTeachings);
     };
 
     getTeaching();

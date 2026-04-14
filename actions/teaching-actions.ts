@@ -44,7 +44,11 @@ export const createTeaching = async ({
 };
 
 export const getAllTeachings = async () => {
-  const allTeachings = await db.teachings.findMany();
+  const allTeachings = await db.teachings.findMany({
+    orderBy: {
+        updatedAt: "desc",
+      },
+  });
   return allTeachings;
 };
 
@@ -101,6 +105,7 @@ export const getTeachingQty = async (quantity: number) => {
     console.log(error);
   }
 };
+
 
 export const deleteTeaching = async (id: string) => {
   await db.teachings.delete({

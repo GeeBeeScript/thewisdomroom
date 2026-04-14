@@ -37,3 +37,28 @@ model Teachings {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model HindiUsers {
+  id String @id @default(cuid())
+  userProviderId String
+  name String 
+  email String @unique
+  provider String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TeachingsHindi {
+  id String @id @default(cuid())
+  title String
+  image String?
+  bannerColour String?
+  description String
+  mainContent String @db.Text
+  comment String
+  teacherId String?
+  teacherName String?
+  usersComments Json? @default("[]")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

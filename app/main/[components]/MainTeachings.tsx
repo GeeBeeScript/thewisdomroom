@@ -3,7 +3,7 @@
 import { MoveRight } from "lucide-react";
 import MainTeachingItem from "./MainTeachingItem";
 import { useEffect, useState } from "react";
-import { getTeachingQty } from "@/actions/teaching-actions";
+import { getAllTeachings, getTeachingQty } from "@/actions/teaching-actions";
 import Link from "next/link";
 import { Spinner } from "@/components/ui/spinner";
 
@@ -31,14 +31,14 @@ const MainTeachings = () => {
   useEffect(() => {
     const getTeaching = async () => {
       setIsLoading(true);
-      const getfiveTeachings = await getTeachingQty(5);
+      const getTeachings = await getAllTeachings();
       setIsLoading(false);
 
-      if (!getfiveTeachings) {
+      if (!getTeachings) {
         setError(true);
         return;
       }
-      setTeachings(getfiveTeachings);
+      setTeachings(getTeachings);
     };
 
     getTeaching();

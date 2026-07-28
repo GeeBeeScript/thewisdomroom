@@ -10,6 +10,7 @@ import AskAQuestion from "@/app/main/[components]/AskAQuestion";
 import { Spinner } from "@/components/ui/spinner";
 import IndexNavigation from "@/components/IndexNavigation";
 import CommentSection from "../../[components]/CommentSection";
+import { TeachingItemPageLoader } from "../../[components]/LoadingComp";
 
 interface particularTeachingItem {
   id: string;
@@ -60,7 +61,7 @@ const ViewTeachingPage = ({ params }: viewTeachingPageProps) => {
   return (
     <>
       <IndexNavigation />
-      <main className="min-h-screen flex flex-col items-center gap-10">
+      <main className="min-h-screen flex flex-col items-center gap-10 font-chivo">
         {error && !loading && (
           <div className="flex-1 w-full h-full flex justify-center items-center">
             <p className="flex items-center gap-2 font-bold">
@@ -69,17 +70,10 @@ const ViewTeachingPage = ({ params }: viewTeachingPageProps) => {
           </div>
         )}
         {!error && loading && (
-          <div className="flex-1 w-full h-full flex justify-center items-center">
-            <p className="flex items-center gap-2 font-bold">
-              <span>Loading</span>{" "}
-              <span>
-                <Spinner />
-              </span>
-            </p>
-          </div>
+          <TeachingItemPageLoader />
         )}
         {!error && !loading && (
-          <section className="relative flex-1 w-full flex flex-col items-center px-10 py-4">
+          <section className="relative flex-1 w-full flex flex-col items-center px-10 py-4 sm:my-4">
             <div className="w-full flex flex-col items-start">
               <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
                 {teachingItems?.title}

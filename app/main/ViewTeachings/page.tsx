@@ -6,6 +6,7 @@ import Link from "next/link";
 import ViewTeachingsItem from "./(components)/ViewTeachingsItem";
 import IndexNavigation from "@/components/IndexNavigation";
 import { Spinner } from "@/components/ui/spinner";
+import { ViewTeachingsPageLoader } from "../[components]/LoadingComp";
 
 interface particularTeachingItem {
   id: string;
@@ -47,32 +48,25 @@ const ViewTeachings = () => {
   return (
     <>
       <IndexNavigation />
-      <section className="w-full flex-1 px-2 py-4 max-w-[800px] mx-auto">
+      <section className="w-full flex-1 px-2 py-4 max-w-290 mx-auto">
         {/* Scroll wrapper */}
         <div className="w-full my-2">
           <div
             className="
-            flex flex-col gap-4 px-1 pb-6
-            w-full items-center
-            sm:grid sm:grid-cols-2 sm:gap-6
+            flex flex-col gap-4 px-5 pb-6
+            max-sm:w-full max-sm:items-center
+            sm:grid sm:grid-cols-3 sm:gap-6 sm:pt-4
           "
           >
             {error && !loading && (
               <div className="w-[90vw] sm:w-[40vw] h-[70vh] flex justify-center items-center">
                 <p className="flex items-center gap-2 font-bold">
-                  Item does not exist
+                  No Teachings Present
                 </p>
               </div>
             )}
             {!error && loading && (
-              <div className="w-[90vw] sm:w-[50vw] h-[70vh] flex justify-center items-center">
-                <p className="flex items-center gap-2 font-bold">
-                  <span>Loading</span>{" "}
-                  <span>
-                    <Spinner />
-                  </span>
-                </p>
-              </div>
+              <ViewTeachingsPageLoader />
             )}
             {!error &&
               !loading &&

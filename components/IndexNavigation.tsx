@@ -55,7 +55,7 @@ const IndexNavigation = () => {
 
         <li className="hidden md:flex justify-between items-center gap-5 mx-4 font-fira">
           <p className="hover:text-gray-400 transition-all duration-75 ease-in">
-            <Link href="/main/ViewTeachings">Inspred Teachings</Link>
+            <Link href="/main/ViewTeachings">Inspired Teachings</Link>
           </p>
           <p className="hover:text-gray-400 transition-all duration-75 ease-in">
             <Link href="/main/videos">Videos</Link>

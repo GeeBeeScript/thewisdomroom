@@ -48,7 +48,7 @@ const ViewTeachings = () => {
   return (
     <>
       <IndexNavigation />
-      <section className="w-full flex-1 px-2 py-4 max-w-290 mx-auto">
+      <section className="w-full flex-1 px-2 py-4 max-w-290 mx-auto font-manrope">
         {/* Scroll wrapper */}
         <div className="w-full my-2">
           <div

@@ -23,6 +23,15 @@ interface updateTeachingParams {
   comment?: string;
 }
 
+
+interface addQuestionParams {
+  title: string;
+  content: string;
+  linkId?: string;
+  priority?: string;
+  priorityRank?: number;
+}
+
 export const createTeaching = async ({
   title,
   imageUrl,
@@ -43,6 +52,19 @@ export const createTeaching = async ({
   });
 };
 
+export const addQuestion = async (questionValues: addQuestionParams) => {
+  const { title, content, linkId, priority, priorityRank } = questionValues
+  await db.questions.create({
+    data: {
+      title: title,
+      content: content,
+      linkId: linkId,
+      priority: priority,
+      priorityRank: priorityRank,
+    },
+  })
+}
+
 export const getAllTeachings = async () => {
   const allTeachings = await db.teachings.findMany({
     orderBy: {
@@ -51,6 +73,21 @@ export const getAllTeachings = async () => {
   });
   return allTeachings;
 };
+
+export const getTeachingsTitleandDesc = async () => {
+  const allTeachings = await db.teachings.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      bannerColour: true,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    }
+  })
+  return allTeachings
+}
 
 export const getTeaching = async (id: string) => {
   let particularTeaching;

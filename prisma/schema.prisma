@@ -33,7 +33,20 @@ model Teachings {
   comment String
   teacherId String?
   teacherName String?
+  priority String?
+  priorityRank Int?
   usersComments Json? @default("[]")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Questions {
+  id String @id @default(cuid())
+  title String
+  content String
+  linkId String?
+  priority String?
+  priorityRank Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

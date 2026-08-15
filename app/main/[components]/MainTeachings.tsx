@@ -1,6 +1,6 @@
 "use client";
 
-import { MoveRight } from "lucide-react";
+import { ChevronDown, ChevronUp, MoveRight } from "lucide-react";
 import MainTeachingItem from "./MainTeachingItem";
 import { useEffect, useState } from "react";
 import { getAllTeachings, getTeachingQty } from "@/actions/teaching-actions";
@@ -27,6 +27,7 @@ const MainTeachings = () => {
   >(undefined);
   const [error, setError] = useState<boolean>(false);
   const [loading, setIsLoading] = useState<boolean>(true);
+  const [listExpanded, setListExpanded] = useState<boolean>(false)
 
   useEffect(() => {
     const getTeaching = async () => {
@@ -57,7 +58,7 @@ const MainTeachings = () => {
       </div>
 
       {/* Scroll wrapper */}
-      <div className="w-full overflow-x-auto md:overflow-visible">
+      <div className={`w-full overflow-x-auto md:relative md:overflow-visible ${!listExpanded && "md:h-250 md:overflow-y-clip"}`}>
         {/* Inner content */}
         <div
           className="
@@ -88,7 +89,18 @@ const MainTeachings = () => {
                 bannerColour={item.bannerColour}
               />
             ))}
+            
         </div>
+        {!listExpanded && (
+          <div onClick={() => setListExpanded(true)} className="absolute bottom-0 z-10 w-full place-self-center bg-white hidden md:flex justify-center items-center border-gray-400 border py-5 my-3 mx-2 shadow-2xl rounded-lg hover:bg-white/80 transition-all duration-100 ease-in cursor-pointer">
+            <ChevronDown size={20} />
+        </div>
+        )}
+        {listExpanded && (
+          <div onClick={() => setListExpanded(false)} className="hidden md:flex justify-center items-center border-gray-400 border py-5 my-3 mx-2 shadow-lg rounded-lg hover:bg-gray-200 transition-all duration-100 ease-in cursor-pointer">
+              <ChevronUp size={20}/>
+          </div>
+        )}
       </div>
     </section>
   );

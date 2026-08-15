@@ -100,7 +100,7 @@ const MainTopicsSection = () => {
         </div>
         <div className="bg-gray-200/40 rounded-lg px-5 py-3 flex justify-center items-center font-manrope">
           <Link
-            href=""
+            href="/main/ViewTeachings/cmny4nxu10001i0wf2wd4ninn"
             className="flex flex-col justify-between items-start gap-2"
           >
             <div>
@@ -161,16 +161,16 @@ const MainTopicsSection = () => {
                   the earth” — the emotions come from the earth. But the spirit
                   and soul (Ecc. 12:3) come from the sprout.
                 </div>
-                <Link href="/main/ViewTeachings/cmny4nxu10001i0wf2wd4ninn" className="hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3">
+                <div className="hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3">
                   Read more...
-                </Link>
+                </div>
               </div>
             </div>
           </Link>
         </div>
         <div className="bg-gray-200/40 rounded-lg px-3 py-3 flex justify-center items-center font-manrope">
           <Link
-            href=""
+            href="/main/ViewTeachings/cmny5fliq000204gs5tw5zgx8"
             className="flex flex-col justify-between items-start gap-2"
           >
             <div>
@@ -228,9 +228,9 @@ const MainTopicsSection = () => {
                   revealed, we are warned not to speak against it, regardless of
                   national or denominational traditions. God bless.
                 </div>
-                <Link href="/main/ViewTeachings/cmny5fliq000204gs5tw5zgx8" className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3 hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in">
+                <div className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3 hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in">
                   Read more...
-                </Link>
+                </div>
               </div>
             </div>
           </Link>

@@ -36,15 +36,15 @@ const SELECTOPTIONS = [
 ]
 
 const NewQuestion = () => {
-  const titleRef = useRef<HTMLInputElement>(null)
-  const contentRef = useRef<HTMLTextAreaElement>(null);
-  const linkIdRef = useRef<HTMLInputElement>(null)
-  const priorityValue = useState<number>(2)
+  // const titleRef = useRef<HTMLInputElement>(null)
+  // const contentRef = useRef<HTMLTextAreaElement>(null);
+  // const linkIdRef = useRef<HTMLInputElement>(null)
+  // const priorityValue = useState<number>(2)
   // const router = useRouter();
 
   return (
     <main className="min-h-screen flex flex-col items-center gap-10">
-      <TeacherNavigation />
+      {/* <TeacherNavigation />
       <section className="relative flex-1 w-full flex flex-col items-center">
         <h1 className="w-full flex justify-center items-center font-bold text-2xl text-[#555] mb-5">
           Add a Question
@@ -129,11 +129,11 @@ const NewQuestion = () => {
                       Display Priority
                     </FieldLabel>
                     <div>
-                        {/* <select value={priorityValue} onChange={}>
+                        <select value={priorityValue} onChange={}>
                             {SELECTOPTIONS.map(({priority, priorityRank}) => (
                             <option value={priorityRank}>{priority}</option>
                         ))}
-                        </select> */}
+                        </select>
                     </div>
                   </Field>
                 </FieldGroup>
@@ -143,7 +143,7 @@ const NewQuestion = () => {
             </FieldGroup>
           </form>
         </section>
-      </section>
+      </section> */}
     </main>
   );
 };

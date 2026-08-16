@@ -13,7 +13,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 const SELECTOPTIONS = [
@@ -40,7 +40,7 @@ const NewQuestion = () => {
   const contentRef = useRef<HTMLTextAreaElement>(null);
   const linkIdRef = useRef<HTMLInputElement>(null)
   const priorityValue = useState<number>(2)
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <main className="min-h-screen flex flex-col items-center gap-10">

@@ -8,6 +8,7 @@ import TeacherGreeting from './[components]/TeacherGreeting'
 import { useRouter } from 'next/navigation'
 import { UserAuth } from '../context/auth-context'
 import { useEffect } from 'react'
+import Link from 'next/link'
 
 const TeacherPage = () => {
   const router = useRouter()
@@ -28,6 +29,10 @@ const TeacherPage = () => {
         <PreviousTeachings />
         <section className='w-full px-10 sm:max-2xl:px-0 my-8'>
             <Button className='w-full' onClick={addTeacherHandler}><span>Add Teaching</span> <span><Plus /></span></Button>
+        </section>
+        <section className='w-full px-10 sm:max-2xl:px-0 my-8'>
+            <h2 className='font-bold text-2xl'>Questions</h2>
+            <Button className='w-full' onClick={addTeacherHandler}><Link href="/teacher/new-question" className='w-full'><span>Add Teaching</span> <span><Plus /></span></Link></Button>
         </section>
         </div>
     </main>

@@ -32,6 +32,30 @@ interface addQuestionParams {
   priorityRank?: number;
 }
 
+export const addQuestion = async (questionValues: addQuestionParams) => {
+  const { title, content, linkId, priority, priorityRank } = questionValues
+  await db.questions.create({
+    data: {
+      title: title,
+      content: content,
+      linkId: linkId,
+      priority: priority,
+      priorityRank: priorityRank,
+    },
+  })
+}
+
+export const getQuestions = async (amount?: number) =>  {
+  const allQuestions = await db.questions.findMany({
+    orderBy: {
+      priorityRank: "asc"
+    },
+    take: amount ? amount : undefined
+  })
+  return allQuestions
+}
+
+
 export const createTeaching = async ({
   title,
   imageUrl,
@@ -52,18 +76,6 @@ export const createTeaching = async ({
   });
 };
 
-export const addQuestion = async (questionValues: addQuestionParams) => {
-  const { title, content, linkId, priority, priorityRank } = questionValues
-  await db.questions.create({
-    data: {
-      title: title,
-      content: content,
-      linkId: linkId,
-      priority: priority,
-      priorityRank: priorityRank,
-    },
-  })
-}
 
 export const getAllTeachings = async () => {
   const allTeachings = await db.teachings.findMany({

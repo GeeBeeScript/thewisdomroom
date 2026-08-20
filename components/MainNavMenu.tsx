@@ -103,7 +103,7 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
 
         <div>
           <Link
-            href=""
+            href="/main/aboutus"
             className="my-5 text-gray-500 hover:bg-gray-50 hover:text-gray-900 flex justify-start items-center py-3 px-4 rounded-lg text-[1.1rem]"
           >
             About Us

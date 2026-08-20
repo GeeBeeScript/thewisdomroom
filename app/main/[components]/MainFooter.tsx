@@ -20,15 +20,15 @@ const MainFooter = () => {
             <p className='font-bold text-lg'>Reach Out</p>
             <div className='flex flex-col justify-between items-start gap-1'>
               <Link href="/">Reach us via E-mail</Link>
-              <Link href="/">Ask a Question</Link>
-              <Link href="/">View Comments</Link>
+              <Link href="/main/AskAQuestion">Ask a Question</Link>
+              <Link href="/main/videos">Our Videos</Link>
             </div>
           </div>
           <div className='flex flex-col gap-3'>
             <p className='font-bold text-lg'>Our App Sections</p>
             <div className='flex flex-col justify-between items-start gap-1'>
-              <Link href="/">Teachings</Link>
-              <Link href="/">View Popular Questions</Link>
+              <Link href="/main/ViewTeachings">Teachings</Link>
+              <Link href="/main/Questions">View Popular Questions</Link>
               <LogoutLink />
             </div>
           </div>

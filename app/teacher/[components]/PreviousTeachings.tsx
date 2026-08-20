@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DisplayTeachings from "./DisplayTeachings";
 import { Spinner } from "@/components/ui/spinner";
 
+
 interface allTeachingElementsMain {
     id: string;
     title: string;
